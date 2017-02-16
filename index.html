@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html ng-app="simplefacebook">
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple Facebook</title>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/ngstorage/ngStorage.js"></script>
+    <script src="/app.js"></script>
+    
+    <script src="/components/homePage/homePageCtrl.js"></script>
+    <script src="/components/homePage/homepageDirective.js"></script>
+    <script src="/components/homePage/conversations/conversationsDirective.js"></script>
+    <script src="/components/homePage/conversations/conversationsCtrl.js"></script>
+    
+    <script src="/components/account/accountService.js"></script>
+    <script src="/components/account/login/loginCtrl.js"></script>
+    <script src="/components/account/login/loginDirective.js"></script>
+    
+    <script src="/components/chat/chatService.js"></script>
+</head>
+
+<body ng-app="simplefacebook">
+  <simplefacebook-home-page></simplefacebook-home-page>
+</body>
+
+</html>

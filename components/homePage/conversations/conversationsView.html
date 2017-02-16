@@ -1,0 +1,31 @@
+<h1>Registered Users</h1>
+<div ng-repeat="user in $ctrl.users">
+    <div ng-show="user.username !== $ctrl.username">
+        <button ng-click="$ctrl.startChat(user.username)">chat with {{user.username}}</button>
+        <span ng-show="user.online"> online</span>
+        <span ng-show="user.unseenMessage"> new message</span>
+    </div>
+</div>
+<div style="color: red;">{{$ctrl.getUsersError}}</div>
+<div ng-repeat="conversation in $ctrl.conversations" ng-show="conversation.show">
+    <h3 ng-show="conversation.show">Chatting with {{conversation.recipientUsername}}</h3>
+    <button ng-click="conversation.show = false" ng-show="conversation.show">close chat</button>
+    <div ng-repeat="message in conversation.messageObjects">
+        <div ng-show="conversation.show">
+            <span ng-if="message.from === $ctrl.username">You - {{message.content}}</span>
+            <span ng-if="message.from !== $ctrl.username">{{message.from}} - {{message.content}}</span>
+        </div>
+        <button ng-if="message.from !== $ctrl.username && message.likedBy.indexOf(message.to) === -1" ng-click="$ctrl.likeMessage(message.id, conversation.id)">like
+        </button>
+        <button ng-if="message.from !== $ctrl.username && message.likedBy.indexOf(message.to) !== -1" ng-click="$ctrl.unlikeMessage(message.id, conversation.id)">unlike
+        </button>
+        <div ng-if="message.likedBy.length > 0 && message.to === $ctrl.username">liked by you</div>
+        <div ng-if="message.likedBy.length > 0 && message.to !== $ctrl.username">liked by: {{message.likedBy}}</div>
+        <div ng-if="message.seenByRecipient">seen</div>
+    </div>
+    <form>
+        <input type="text" name="message" ng-model="conversation.newMessage" ng-show="conversation.show">
+        <button ng-click="$ctrl.sendMessage(conversation)" ng-show="conversation.show">send message</button>
+    </form>
+</div>
+<div style="color: red;">{{$ctrl.getConversationsError}}</div>

@@ -1,0 +1,10 @@
+<div>
+    <form name="loginForm">
+        <input ng-model="$ctrl.user.username" type="text" name="username" placeholder="User Name">
+        <input ng-model="$ctrl.user.password" type="password" name="password" placeholder="Password">
+        <button ng-click="$ctrl.login($ctrl.user)">login</button>
+        <button ng-click="$ctrl.register($ctrl.user)">register</button>
+    </form>
+    <div style="color: red" ;>{{$ctrl.loginError}}</div>
+    <div style="color:red;">{{$ctrl.registerError}}</div>
+</div>

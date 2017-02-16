@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+        <li ng-if="$ctrl.loggedIn">
+            <button ng-click="$ctrl.logout()">logout</button>
+        </li>
+        <li ng-if="$ctrl.loggedIn">logged in as {{$ctrl.username}}</li>
+    </ul>
+</nav>
+<simplefacebook-login ng-if="!$ctrl.loggedIn" logged-in="$ctrl.loggedIn" username="$ctrl.username">
+</simplefacebook-login>
+<simplefacebook-conversations ng-if="$ctrl.loggedIn" users="$ctrl.users" conversations="$ctrl.conversations">
+</simplefacebook-conversations>
