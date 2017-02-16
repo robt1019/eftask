@@ -4,7 +4,7 @@
   "scripts": {
     "start": "http-server ./ -a localhost -p 8000 -c-1",
     "test": "karma start",
-    "build": "rm -r node_modules && npm install"
+    "build": "npm install"
   },
   "author": "robt1019",
   "license": "ISC",
