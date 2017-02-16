@@ -1,3 +1,5 @@
+Either download the code or clone it from https://github.com/robt1019/eftask
+
 To run:
 
     Start the server app, running on port 8080
