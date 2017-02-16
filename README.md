@@ -2,7 +2,7 @@ To run:
 
     Start the server app, running on port 8080
 
-    from inside the client folder type:
+    from inside the top level directory type:
 
     'npm run build'
     'npm run start'
@@ -65,7 +65,7 @@ Testing
     than trying to do them all afterwards. The only file that has been tested currently is AccountService.js. 
     Hopefully this gives some indication of how I would test the rest of the application if I had been a bit more disciplined.
 
-    * To run the tests cd into client and type 'npm run test'
+    * To run the tests cd into top level directory and type 'npm run test'
 
 Weaknesses
     
