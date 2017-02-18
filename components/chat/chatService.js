@@ -7,7 +7,7 @@ angular.module('simplefacebook.chat').service('ChatService', [
         var token, webSocket, listeners = [],
             username;
 
-        function connectToWebService() {
+        function connectToWebSocket() {
             token = AccountService.getToken();
             webSocket = new WebSocket('ws://localhost:8080?token=' + token);
             webSocket.onmessage = function(message) {
@@ -19,7 +19,7 @@ angular.module('simplefacebook.chat').service('ChatService', [
         function connect() {
             if (AccountService.loggedIn()) {
                 if (!(webSocket && token)) {
-                    connectToWebService();
+                    connectToWebSocket();
                 }
             }
         }
@@ -190,9 +190,7 @@ angular.module('simplefacebook.chat').service('ChatService', [
                     newConversationToInspect.show = oldConversationToInspect.show;
                     newConversationToInspect.recipientUsername = oldConversationToInspect.recipientUsername;
                 }
-                var messageCount = 0;
                 angular.forEach(newConversation.messageObjects, function(message) {
-                    messageCount ++;
                     if (oldConversationToInspect) {
                         var oldMessageToInspect = oldConversationToInspect.messageObjects[message.id],
                             newMessageToInspect = newConversationToInspect.messageObjects[message.id];
@@ -313,7 +311,7 @@ angular.module('simplefacebook.chat').service('ChatService', [
                 username = AccountService.getUsername();
                 token = AccountService.getToken();
                 if (!(webSocket && token)) {
-                    connectToWebService();
+                    connectToWebSocket();
                 }
             }
         }
